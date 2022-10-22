@@ -46,11 +46,13 @@
  
 # 5. 본인 소개
 
-본인 소개를 추가하세요
+|이름|박유라|<img src="yrpic_1.jpg"/>|
+|연락처|<yrpr1014@gmail.com>|-|
+|Frontend skill|HTML, CSS, Javascript|-|
+|Backend skill|Java, Spring, Oracle|-|
+|abc|abc|abc|
 
-|이름 |박유라|![gdKO](/yrpic_1.jpg)
-|
-|연락처 | yrpr1014(@)gmail.com|
+
 |skill set| Frontend - HTML, CSS, Javascript|
 | | Backend - Java, Spring, Oracle|
 |자격증| 2022년 정보처리기사 |
