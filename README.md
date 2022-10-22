@@ -12,11 +12,13 @@
 <img src="expect.png"/>
 
 ### 1-3. 개발환경
+```
 - OS : window 10
 - Framework : Spring Boot
 - Server : tomcat9
 - Tool : Eclipse, Sql Developer, Github
 - DBMS : Oracle DBMS
+```
 
 ### 1-4. 수행기간
 개발기간: 2022.09.16 - 2022.10.24
