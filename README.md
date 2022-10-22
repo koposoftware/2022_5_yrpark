@@ -48,7 +48,7 @@
 
 본인 소개를 추가하세요
 
-|이름 |박유라|![gdKO](/yrpic.jpg){: width="10" height="10"}
+|이름 |박유라|![gdKO](/yrpic_1.jpg)
 |
 |연락처 | yrpr1014(@)gmail.com|
 |skill set| Frontend - HTML, CSS, Javascript|
