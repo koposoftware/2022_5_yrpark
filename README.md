@@ -11,7 +11,7 @@
 프로젝트 제안서를 설명하세요. 발표자료와 동영상을 추가하세요. 시스템의 아키텍쳐 설명도 추가하세요.
 
  
-[발표자료<img src="ppt.jpg"/>](/project.pptx)<br>
+[발표자료<img src="hanacare_main.png"/>](/project.pptx)<br>
 <br> <br> 
   <iframe width="424" height="238" src="https://www.youtube.com/embed/reOGfxYJre0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
