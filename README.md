@@ -12,13 +12,14 @@
 <img src="expect.png"/>
 
 ### 1-3. 개발환경
-- OS : window
+- OS : window 10
 - Framework : Spring Boot
 - Server : tomcat9
 - Tool : Eclipse, Sql Developer, Github
 - DBMS : Oracle DBMS
 
 ### 1-4. 수행기간
+개발기간: 2022.09.16 - 2022.10.24
 <img src="period.png"/>
 
 
@@ -47,7 +48,8 @@
 
 본인 소개를 추가하세요
 
-|이름 |박유라|![gdKO](/yrpic.jpg)|
+|이름 |박유라|![gdKO](/yrpic.jpg){: width="10" height="10"}
+|
 |연락처 | yrpr1014(@)gmail.com|
 |skill set| Frontend - HTML, CSS, Javascript|
 | | Backend - Java, Spring, Oracle|
