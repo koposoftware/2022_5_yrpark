@@ -1,6 +1,6 @@
-# 프로젝트 제목
+# 하나케어 - 초 개인화 인슈어테크, 나만의 건강한 보험 플랫폼
 
-[프로젝트 홈페이지 - https://koposoftware.github.io/finalproject_template/](https://koposoftware.github.io/finalproject_template/)
+[프로젝트 홈페이지](https://koposoftware.github.io/2022_5_yrpark/)
 
 # 1. 프로젝트 개요
 
