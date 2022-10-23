@@ -65,7 +65,7 @@
  
 # 5. 본인 소개
 
-|이름|박유라|<img src="img/yrpic.jpg"/>|
+|이름|박유라|<img src="img/yrpic2.jpg"/>|
 |연락처|<yrpr1014@gmail.com>||
 |Frontend skill|HTML, CSS, Javascript||
 |Backend skill|Java, Spring, Oracle||
