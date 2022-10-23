@@ -47,7 +47,12 @@
 <img src="/img/technology.png"/>
 
 # 3. 프로젝트 결과
-   <img src="erd.JPG"/><br>
+### 3-1. 서비스 아키텍처
+<img src="/img/service.png"/>
+
+### 3-2. ERD
+
+   <img src="/img/erd.JPG"/><br>
 ## 발표 ppt 
 
 [발표자료<img src="/img/hanacare_main.png"/>](/project.pdf)<br>
