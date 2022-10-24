@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.ac.kopo.dao.CheckUpDAO">
+
+	<select  id="checkUpList" parameterType="CheckUpVO" resultType="HashMap">
+		select * from checkup_item where id = #{id}
+	</select>
+	
+	<select id="selectAge" parameterType="MemberVO" resultType="HashMap">
+		select mod(substr(jumin1,1, 2), 2) as agemod from t_member where id=#{id}
+	</select>
+</mapper>
+

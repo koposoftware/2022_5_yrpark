@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="kr.ac.kopo.dao.SignPaperDAO">
+ 
+ 	<select id="signpaper" parameterType="MemberVO" resultType="HashMap">
+		select a.*, b.remark
+		from insurance_sign a, 
+		insurance_item b 
+		where a.no = '002076' and a.no = b.no and id=#{id}
+	</select>
+</mapper>

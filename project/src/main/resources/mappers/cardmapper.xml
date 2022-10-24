@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.ac.kopo.dao.CardDAO">
+
+	<select resultType="HashMap" parameterType="CardVO" id="medicalList">
+		select STORE_NAME, using_price as USING_PRICE, to_char(using_date, 'YYYY-MM-DD') as using_date, 
+		substr( card_num, -4 ) as card_num from user_card where industry_name in ('개인병원', '치과병원', '약국') 
+		and extract(month from USING_DATE) = #{month} and extract(year from USING_DATE)= #{year} and id= #{id}
+		order by using_date 
+	</select>
+	
+	<!-- <select id="medicalList" parameterType="CardVO" resultType="HashMap">
+		select store_name, using_price, using_date, card_num, sum(using_price) over() as total_sum
+		from user_card
+		where industry_name in ('개인병원', '치과병원', '약국') and 
+		extract(month from USING_DATE) = '07' and extract(year from USING_DATE)= '2022' and id= 'yura'
+		</select> -->
+	
+	<select resultType="HashMap" parameterType="CardVO" id="sum">
+	SELECT SUM(USING_PRICE) AS SUM FROM USER_CARD WHERE industry_name in ('개인병원', '치과병원', '약국') 
+	and extract(month from USING_DATE) = #{month} and extract(year from USING_DATE)= #{year} and id= #{id}
+	order by using_date 
+	</select>
+	
+	
+	
+	<!-- select to_char(using_date, 'YYYY-MM-DD'), using_price from user_card where industry_name in ('개인병원', '치과병원', '약국') and 
+		extract(month from USING_DATE) = '07' and extract(year from USING_DATE)= '2022' and id= 'yura'
+	union all
+	SELECT concat(to_char(using_date, 'MM'), '월 합계') , SUM(USING_PRICE) FROM USER_CARD WHERE industry_name in ('개인병원', '치과병원', '약국') 
+		and extract(month from USING_DATE) = '07' and extract(year from USING_DATE)='2022' and id= 'yura'
+        group by to_char(using_date, 'MM'); -->
+</mapper>

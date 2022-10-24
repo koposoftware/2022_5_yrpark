@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="kr.ac.kopo.dao.InsuranceSignDAO">
+
+	<select id="insuranceList" parameterType="InsuranceSignVO" resultType="HashMap">
+		select no, id, insurance_name, insurance_type, company_name, insurance_fee from insurance_sign
+		where id=#{id} order by no
+	</select>
+	
+	<select id="insuranceFee" parameterType="InsuranceSignVO" resultType="HashMap">
+		Select DISTINCT
+		(select sum(insurance_fee) from insurance_sign where id=#{id}) as user_fee,
+		(select round(sum(insurance_fee)/count(DISTINCT id)) from insurance_sign
+        where (select distinct substr(c.birth_date, 1, 2) from insurance_sign c where id=#{id}) 
+        = (SELECT substr(d.jumin1, 1, 2) FROM t_member d where id =#{id})) as avg_fee
+		from insurance_sign
+		
+	</select>
+	
+	<select id="insuranceRank" parameterType="InsuranceSignVO" resultType="HashMap">
+		select insurance_type, count(*) cnt,  ROW_NUMBER() over (order by count(*) desc) as RANK 
+		from insurance_sign group by insurance_type
+	</select>
+	
+	<select id ="insuranceSum" parameterType="InsuranceSignVO" resultType="HashMap">
+		select sum(insurance_fee) sum from insurance_sign where id=#{id}
+	</select>
+		
+	<insert id="insertInsurance" parameterType="InsuranceSignVO">
+		insert into insurance_sign (no, id, birth_date, age, sex, insurance_name, insurance_type, company_name, insurance_fee)
+		values (#{no}, #{id}, '1995-10-14', '28', 'F', #{insuranceName}, #{insuranceType}, #{companyName}, #{insuranceFee})
+	</insert>
+</mapper> 

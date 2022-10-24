@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="kr.ac.kopo.dao.AdminInsertDAO">
+ 	<insert id="insertItem"  parameterType="InsuranceItemVO">
+ 		insert into insurance_item(no, company_name, insurance_name, insurance_type, protect_item, protect_fee, insurance_fee, sign_age, remark, sign_type, add_date)
+		values (#{no}, #{companyName}, #{insuranceName}, #{insuranceType}, #{protectItem}, #{protectFee}, #{insuranceFee}, #{signAge}, #{remark}, #{signType}, sysdate)
+ 	</insert>
+ </mapper>

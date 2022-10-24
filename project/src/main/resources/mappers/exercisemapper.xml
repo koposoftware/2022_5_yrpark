@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="kr.ac.kopo.dao.ExerciseDAO">
+	<update id="updateWalkgoal" parameterType="ExerciseVO">
+		 update exercise_mission set walk_goal = #{walkGoal} where id= #{id}
+	</update>
+	
+	<select id="exercise" parameterType="ExerciseVO" resultType="HashMap">
+		<![CDATA[
+				SELECT
+			substr(end_time,1,10) as dt,
+		    case when substr(end_time,15,2)<'10' then concat(substr(end_time,12,2),':00')
+		    	 when substr(end_time,15,2) >='10' and substr(end_time,15,2)<'20' then concat(substr(end_time,12,2),':10')
+		         when substr(end_time,15,2) >='20' and substr(end_time,15,2)<'30' then concat(substr(end_time,12,2),':20')
+		         when substr(end_time,15,2) >='30' and substr(end_time,15,2)<'40' then concat(substr(end_time,12,2),':30')
+		         when substr(end_time,15,2) >='40' and substr(end_time,15,2)<'50' then concat(substr(end_time,12,2),':40')
+		         when substr(end_time,15,2) >='50' and substr(end_time,15,2)<'60' then concat(substr(end_time,12,2),':50')
+		     END as hhmm, walk_step, calorie, longitude, latitude
+		     
+		FROM exercise_mission
+		where id='yura' and substr(end_time,1,10) = TO_CHAR(SYSDATE, 'YYYY-MM-DD')
+		group by substr(end_time,1,10) ,
+		    case when substr(end_time,15,2)<'10' then concat(substr(end_time,12,2),':00')
+		    	 when substr(end_time,15,2) >='10' and substr(end_time,15,2)<'20' then concat(substr(end_time,12,2),':10')
+		         when substr(end_time,15,2) >='20' and substr(end_time,15,2)<'30' then concat(substr(end_time,12,2),':20')
+		         when substr(end_time,15,2) >='30' and substr(end_time,15,2)<'40' then concat(substr(end_time,12,2),':30')
+		         when substr(end_time,15,2) >='40' and substr(end_time,15,2)<'50' then concat(substr(end_time,12,2),':40')
+		         when substr(end_time,15,2) >='50' and substr(end_time,15,2)<'60' then concat(substr(end_time,12,2),':50')
+		     END, walk_step, calorie, longitude, latitude
+		order by dt, hhmm
+	]]>
+	</select>
+	
+	<select id="selectGoal" parameterType="ExerciseVO" resultType="HashMap">
+		select walk_goal from my_exercise where id=#{id} group by walk_goal
+	</select>
+
+	<select id="selectSteps" parameterType="ExerciseVO" resultType="HashMap">
+		select SUM(walk_step) as walk_steps, round(sum(calorie), 0) as calorie from exercise_mission 
+		where id=#{id} and END_TIME BETWEEN TO_CHAR(SYSDATE,'YYYY-MM-DD HH:SS') AND TO_CHAR(SYSDATE +1, 'YYYY-MM-DD')
+	</select>
+	
+	<select id="selectMonth" parameterType="ExerciseVO" resultType="HashMap">
+		select sum(walk_step) as walk_steps from exercise_mission 
+		where substr(end_time,6,2) = to_char(sysdate, 'MM') and id=#{id}
+	</select>
+	
+	<select id="selectAvg" parameterType="ExerciseVO" resultType="HashMap">
+		select round(sum(walk_step)/count(distinct substr(end_time,1,10)),0) as avg_walk from exercise_mission
+		where substr(end_time,6,2) = to_char(sysdate, 'MM') and id =#{id} group by substr(end_time,1,7)
+	</select>
+	
+	<select id="selectTime" parameterType="ExerciseVO" resultType="HashMap">
+	<![CDATA[
+		select SUM(walk_step) as walk_step, to_char(substr(end_time, 1, 10)) as time from exercise_mission 
+		where id=#{id} and END_TIME < TO_CHAR(SYSDATE, 'YYYY-MM-DD') group by substr(end_time, 1, 10)
+	]]>
+	</select>
+	
+	<insert id="insertPoint" parameterType="ExerciseVO">
+		insert into point_history values (#{id}, 10, sysdate, null, '운동미션')
+	</insert>
+	
+	
+</mapper>

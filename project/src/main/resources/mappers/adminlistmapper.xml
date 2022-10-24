@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="kr.ac.kopo.dao.AdminListDAO">
+ 
+ 	<select id="adminList" parameterType="InsuranceSignVO" resultType="HashMap">
+		select count(no) as cntno, no,company_name, insurance_name, insurance_type, ROW_NUMBER() OVER (ORDER BY count(no) DESC) AS RANK from insurance_sign group by no, company_name, insurance_name, insurance_type order by cntno desc
+ 	</select>
+ 	
+ 	<select id="insuranceAll" parameterType="InsuranceItemVO" resultType="HashMap">
+		<![CDATA[
+		select no, company_name, insurance_name, protect_item, protect_fee, protect_item2, protect_fee2, insurance_fee, sign_age,  remark,  sign_type, insurance_type from insurance_item where company_name='하나케어'
+		]]>
+	</select>
+	
+	<delete id="deleteItem" parameterType="InsuranceItemVO">
+		delete from insurance_item where no = #{no}
+	</delete>
+	
+	<update id="updateItem" parameterType="InsuranceItemVO">
+		update insurance_item set insurance_name = #{insuranceName}, insurance_type = #{insuranceType}, protect_item = #{protectItem}, 
+		protect_fee = #{protectFee}, insurance_fee = #{insuranceFee}, sign_age =  #{signAge}, remark =  #{remark}, sign_type = #{signType}
+		where no=#{no}
+	</update>
+ </mapper>

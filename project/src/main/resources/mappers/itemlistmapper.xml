@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="kr.ac.kopo.dao.InsuranceAllDAO">
+
+	<select id="insuranceAll" parameterType="InsuranceItemVO" resultType="HashMap">
+		select no, company_name, insurance_name, protect_item, protect_fee, insurance_fee, sign_age,  remark,  sign_type, insurance_type from insurance_item
+	</select>
+	
+</mapper>

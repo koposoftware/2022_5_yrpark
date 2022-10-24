@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.ac.kopo.dao.MemberDAO">
+	<resultMap type="kr.ac.kopo.vo.MemberVO" id="memberMap">
+		<result column="id" property="id" />
+		<result column="password" property="password" />
+		<result column="name" property="name" />
+		<result column="jumin1" property="jumin1" />
+		<result column="jumin2" property="jumin2" />
+		<result column="email" property="email" />
+		<result column="tel" property="tel" />
+		<result column="main_addr" property="mainAddr" />
+		<result column="detail_addr" property="detailAddr" />
+		<result column="sign_date" property="signDate" />
+		<result column="user_type" property="userType" />
+		<result column="group_id" property="groupId" />
+		<result column="point" property="point" />
+		<result column="insurance_check" property="insuranceCheck" />
+		
+	</resultMap>
+	
+	<select id="selectUser" parameterType="MemberVO" resultMap="memberMap">
+		select * from t_member 
+      where 1=1
+         <if test="id != null">and id = #{id}</if>
+         <if test="password != null">and password = #{password}</if>
+         <if test="email != null">and email = #{email}</if>
+	</select>
+	
+	<select id="selectPoint" parameterType="MemberVO" resultMap="memberMap">
+		select sum(point) as point from point_history where id='yura' 
+		
+	</select>
+	
+	<select id="selectCheck" parameterType="MemberVO" resultMap="memberMap">
+		select insurance_check
+		from t_member
+		where id='yura'
+		
+	</select>
+	
+	
+</mapper>

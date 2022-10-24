@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="kr.ac.kopo.dao.InsuranceItemDAO">
+
+	<select id="insuranceItem" parameterType="InsuranceItemVO" resultType="HashMap">
+		select * from insurance_item where protect_item like '%혈%' and ((SELECT MONTHS_BETWEEN(TRUNC(SYSDATE,'YEAR'),
+                      TRUNC(TO_DATE((select concat(19, jumin1) as jumin1 from t_member where id=#{id}),'YYYYMMDD'),'YEAR')) /12 +1 as age
+  					FROM DUAL) between substr(sign_age, 1, 2) and substr(sign_age, 4, 2)) and not remark like '%남%' order by no
+	</select>
+	
+	
+	
+	<select id="selectByNo" parameterType="InsuranceItemVO" resultType="HashMap">
+		select no, company_name, insurance_name, protect_item, protect_fee, insurance_fee, sign_age,  remark,  sign_type, insurance_type from insurance_item where no = #{no} 
+	</select>
+	
+	<select id="selectPoint" parameterType="InsuranceItemVO" resultType="HashMap">
+		select sum(point) as point from point_history where id=#{id}
+	</select>
+ 
+</mapper>

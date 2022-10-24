@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="kr.ac.kopo.dao.FamilyCareDAO">
+
+	<select id="familyList" parameterType="CheckUpVO" resultType="HashMap">
+		select distinct a.*, b.name, b.group_id from checkup_item a, t_member b where a.id=b.id and group_id=(select group_id from t_member where id=#{id})
+	</select>
+	
+	<select id="familyInsu" parameterType="InsuranceSignVO" resultType="HashMap">
+		select distinct a.*, b.name from INSURANCE_SIGN a, t_member b where a.id=b.id and group_id=(select group_id from t_member where id=#{id}) and a.id='mom'
+	</select>
+
+	<select id="countInsu" parameterType="InsuranceSignVO" resultType="HashMap">
+		select count(*) as cnt from INSURANCE_SIGN where id='mom'
+	</select>
+	
+
+
+</mapper>

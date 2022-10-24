@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.ac.kopo.dao.CalendarDAO">
+
+		
+    <select id="calendarList" parameterType="CalendarVO" resultType="HashMap">
+		select * from calendar where id=#{id}
+	</select>
+	
+
+    <select id="historyList" parameterType="CalendarVO" resultType="HashMap">
+		select mission_code, to_char(start_cal, 'YYYY-MM-DD') as start_cal, start_time, content from calendar 
+		where extract(month from start_cal) = #{month} and extract(year from start_cal)= #{year} and id=#{id}
+		order by start_cal
+	</select>
+
+	<insert id="insertCalendar" parameterType="CalendarVO">
+	insert all 
+	into calendar(id, start_time, mission_code, content, start_cal)
+		values (#{id}, #{startTime}, #{missionCode}, #{content}, #{start})
+	into point_history values (#{id}, 10, sysdate, null, '기록미션')
+	SELECT * FROM DUAL
+    </insert>
+	
+	<!-- <update id="updatePoint" parameterType="PointVO">
+		update point_history
+		set point = point + 10	
+		where id= #{id}
+	</update> -->
+	
+	
+	
+</mapper>
