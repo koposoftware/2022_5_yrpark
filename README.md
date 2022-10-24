@@ -63,7 +63,7 @@
 [발표자료<img src="img/hanacare_main.png"/>](/project.pdf)<br>
 ## 시연 동영상 
 
-  <iframe width="424" height="238" src="https://youtu.be/jZsJe_0oqxs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="424" height="238" src="https://www.youtube.com/embed/jZsJe_0oqxs" title="웹개발프로젝트_하나케어_시연영상" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 # 4. 본인 소개
 
@@ -78,4 +78,4 @@
 || 정보처리기사(필기) | 2022.08 |
 |대외활동|한이음 ‘금융약자 청소년 대상 마이데이터를 활용한 공모주 주가변동 AI 예측 플랫폼’ 선정|2022년 03월 ~ 2022년 11월|
 |교육활동|하나금융티아이 채용전환형 교육 1200시간( 한국폴리텍대학교 광명융합기술교육원 - 데이터분석과 )|2022년 03월 ~ 2022년 10월|
-|경력|  | 2019년 02월 ~ 2021년 07월 |
+|경력| 주식회사 드웰링 | 2019년 02월 ~ 2021년 07월 |
