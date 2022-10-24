@@ -63,7 +63,7 @@
 [발표자료<img src="img/hanacare_main.png"/>](/project.pdf)<br>
 ## 시연 동영상 
 
-  <iframe width="424" height="238" src="https://www.youtube.com/embed/jZsJe_0oqxs" title="웹개발프로젝트_하나케어_시연영상" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="550" height="300" src="https://www.youtube.com/embed/jZsJe_0oqxs" title="웹개발프로젝트_하나케어_시연영상" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 # 4. 본인 소개
 
